@@ -44,11 +44,10 @@ class Genre(GenreBase):
 
 class UserBase(BaseModel):
     email: str
-    hashed_password: str
 
 
 class UserCreate(UserBase):
-    pass
+    password: str
 
 
 class User(UserBase):

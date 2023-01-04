@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 
 import models
 import schemas
+import auth
 
 
 def get_album(db, album_id: int):
@@ -51,7 +52,8 @@ def get_genres(db, skip: int = 0, limit: int = 100):
 
 
 def create_user(db, user: schemas.UserCreate):
-    db_user = models.User(**user.dict())
+    hashed_password = auth.get_password_hash(user.password)
+    db_user = models.User(email=user.email, hashed_password=hashed_password)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
