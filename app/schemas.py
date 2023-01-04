@@ -53,6 +53,7 @@ class UserCreate(UserBase):
 class User(UserBase):
     id: int
     albums: list[Album] = []
+    hashed_password: str
 
     class Config:
         orm_mode = True
