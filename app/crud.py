@@ -36,3 +36,23 @@ def delete_album(db, album_id: int):
     db.delete(album)
     db.commit()
     return album
+
+
+def create_genre(db, genre: schemas.GenreCreate):
+    db_genre = models.Genre(**genre.dict())
+    db.add(db_genre)
+    db.commit()
+    db.refresh(db_genre)
+    return db_genre
+
+
+def get_genres(db, skip: int = 0, limit: int = 100):
+    return db.query(models.Genre).offset(skip).limit(limit).all()
+
+
+def create_user(db, user: schemas.UserCreate):
+    db_user = models.User(**user.dict())
+    db.add(db_user)
+    db.commit()
+    db.refresh(db_user)
+    return db_user
