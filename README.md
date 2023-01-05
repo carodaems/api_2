@@ -32,6 +32,30 @@ Muziek is een deel van mijn dagelijks leven, ik zou niet weten wat ik zonder moe
 
 ![image](https://user-images.githubusercontent.com/91262442/210824695-7dbf412a-5a47-49c6-8d2d-ec46315ea199.png)
 
+## Testing
+
+Note: Ik heb lokaal enkele problemen ondervonden met de argon backends. Deze willen lokaal niet werken, maar functioneren perfect in de Okteto deployment. Hierdoor zijn er problemen bij de test voor Create User, als ook voor OAuth heb ik problemen ondervonden. Dit werkt allemaal perfect op de Okteto deployment, maar niet lokaal. Ik heb echter wel testen geschreven voor deze endpoints.
+
+test_create_album
+![image](https://user-images.githubusercontent.com/91262442/210857800-218848ac-167f-4cad-8fe3-cd7ae9cc7329.png)
+
+test_create_genre
+![image](https://user-images.githubusercontent.com/91262442/210857895-55ae64e0-93ab-410f-88b7-257ce8c778ef.png)
+
+test_get_genres
+![image](https://user-images.githubusercontent.com/91262442/210859575-23b26733-b8dc-43c6-bb95-a78fec749d4b.png)
+
+test_get_album(s)
+![image](https://user-images.githubusercontent.com/91262442/210859878-b055f11d-a227-4e91-a6e8-1ab293d8231e.png)
+
+test_update_album
+![image](https://user-images.githubusercontent.com/91262442/210860177-bfe87e5f-2a4e-4839-82d8-8fb43af6310c.png)
+
+test_delete_album
+![image](https://user-images.githubusercontent.com/91262442/210860262-79ee57f1-0167-4b0b-a41a-ca46c6735da4.png)
+
+De create user endpoint kan niet getest worden lokaal daar ik problemen heb met argon2 backend. Sommige parameters of album_id's moeten aangepast worden in de tests, naargelang het album dat aanwezig is. Normaal zou het mogelijk moeten zijn een crud functie op te roepen die automatisch een correcte user aanmaakt of genre aanmaakt, maar pytest herkende de imports van deze files niet.
+
 ## Screenshots
 
 ### POST /albums
