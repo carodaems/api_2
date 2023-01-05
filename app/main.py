@@ -48,7 +48,7 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
 
 
 @app.get("/albums/{album_id}", response_model=schemas.Album)
-def read_album(album_id: int, db: Session = Depends(get_db)):
+def read_album(album_id: int, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     album = crud.get_album(db, album_id=album_id)
     if not album:
         raise HTTPException(status_code=404, detail="Album not found")
@@ -56,7 +56,7 @@ def read_album(album_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/albums", response_model=list[schemas.Album])
-def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     albums = crud.get_albums(db=db, skip=skip, limit=limit)
     return albums
 
@@ -105,7 +105,7 @@ def create_genre(genre: schemas.GenreCreate, db: Session = Depends(get_db)):
 
 
 @app.get("/genres", response_model=list[schemas.Genre])
-def read_genres(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_genres(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     genres = crud.get_genres(db, skip=skip, limit=limit)
     return genres
 
