@@ -56,7 +56,7 @@ def read_album(album_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/albums", response_model=list[schemas.Album])
-def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     albums = crud.get_albums(db=db, skip=skip, limit=limit)
     return albums
 
