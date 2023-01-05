@@ -34,7 +34,7 @@ Muziek is een deel van mijn dagelijks leven, ik zou niet weten wat ik zonder moe
 
 ## Testing
 
-Note: Ik heb lokaal enkele problemen ondervonden met de argon backends. Deze willen lokaal niet werken, maar functioneren perfect in de Okteto deployment. Hierdoor zijn er problemen bij de test voor Create User, als ook voor OAuth heb ik problemen ondervonden. Dit werkt allemaal perfect op de Okteto deployment, maar niet lokaal. Ik heb echter wel testen geschreven voor deze endpoints.
+Note: Ik heb lokaal enkele problemen ondervonden met de argon backends. Deze willen lokaal niet werken, maar functioneren perfect in de Okteto deployment. Hierdoor zijn er problemen bij de test voor Create User, als ook voor OAuth heb ik problemen ondervonden. Dit werkt allemaal perfect op de Okteto deployment, maar niet lokaal. Ik heb echter wel testen geschreven voor deze endpoints. Door deze problemen heb ik voor de testing OAuth tijdelijk af de endpoints gehaald.
 
 test_create_album
 ![image](https://user-images.githubusercontent.com/91262442/210857800-218848ac-167f-4cad-8fe3-cd7ae9cc7329.png)
