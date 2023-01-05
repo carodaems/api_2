@@ -30,7 +30,7 @@ Muziek is een deel van mijn dagelijks leven, ik zou niet weten wat ik zonder moe
 
 ## Authenticatie
 
-
+![image](https://user-images.githubusercontent.com/91262442/210824695-7dbf412a-5a47-49c6-8d2d-ec46315ea199.png)
 
 ## Screenshots
 
@@ -59,8 +59,14 @@ Muziek is een deel van mijn dagelijks leven, ik zou niet weten wat ik zonder moe
 ![image](https://user-images.githubusercontent.com/91262442/210821297-92315b4a-e2a5-4353-a5ac-fab69407d87c.png)
 
 
-### OpenAPI Docs
+## OpenAPI Docs
 
+![system-service-carodaems cloud okteto net_docs](https://user-images.githubusercontent.com/91262442/210825621-7aa85e05-07ae-4c71-b2a8-b08620c7281c.png)
+![image](https://user-images.githubusercontent.com/91262442/210826013-1eb387ff-389c-44c9-9a80-b249012f8059.png)
+![image](https://user-images.githubusercontent.com/91262442/210826063-533a414b-0d09-4641-a75d-29bda3728eea.png)
+![image](https://user-images.githubusercontent.com/91262442/210826116-1124b5d8-2a58-472a-b7ba-53e05bf0c903.png)
+![image](https://user-images.githubusercontent.com/91262442/210826145-76b1ceb8-b47c-42b9-b54e-4c4b011c21f0.png)
+![image](https://user-images.githubusercontent.com/91262442/210826165-1669aaac-8f16-4466-af68-68a30066b614.png)
 
 
 ## Links
