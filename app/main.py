@@ -1,6 +1,9 @@
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
+
+import auth
 import crud
 import models
 import schemas
@@ -22,10 +25,26 @@ def get_db():
     finally:
         db.close()
 
-# newuser (moet uniek zijn) #newalbum OK (enkel als het nog niet in de db zit) #newgenre ok (enkel als het nog niet in de db zit)
-# getalbum OK #getallalbums OK #getrandomalbum
-# delete album ok
-# edit album ok
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+
+@app.post("/token")
+def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    # Try to authenticate the user
+    user = auth.authenticate_user(db, form_data.username, form_data.password)
+    if not user:
+        raise HTTPException(
+            status_code=401,
+            detail="Incorrect username or password",
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    # Add the JWT case sub with the subject(user)
+    access_token = auth.create_access_token(
+        data={"sub": user.email}
+    )
+    # Return the JWT as a bearer token to be placed in the headers
+    return {"access_token": access_token, "token_type": "bearer"}
 
 
 @app.get("/albums/{album_id}", response_model=schemas.Album)
@@ -37,7 +56,7 @@ def read_album(album_id: int, db: Session = Depends(get_db)):
 
 
 @app.get("/albums", response_model=list[schemas.Album])
-def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
     albums = crud.get_albums(db=db, skip=skip, limit=limit)
     return albums
 
