@@ -46,7 +46,8 @@ test_get_genres
 ![image](https://user-images.githubusercontent.com/91262442/210859575-23b26733-b8dc-43c6-bb95-a78fec749d4b.png)
 
 test_get_album(s)
-![image](https://user-images.githubusercontent.com/91262442/210859878-b055f11d-a227-4e91-a6e8-1ab293d8231e.png)
+![image](https://user-images.githubusercontent.com/91262442/210860750-280a9963-efdb-4460-90ae-8348d175357c.png)
+
 
 test_update_album
 ![image](https://user-images.githubusercontent.com/91262442/210860177-bfe87e5f-2a4e-4839-82d8-8fb43af6310c.png)
