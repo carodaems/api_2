@@ -52,6 +52,7 @@ class UserCreate(UserBase):
 
 class User(UserBase):
     id: int
+    is_active: bool
     albums: list[Album] = []
 
     class Config:

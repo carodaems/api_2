@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey, Boolean
 from database import Base
 from sqlalchemy.orm import relationship
 
@@ -9,6 +9,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, index=True, unique=True)
     hashed_password = Column(String)
+    is_active = Column(Boolean, default=True)
 
     albums = relationship("Album", back_populates="user")
 

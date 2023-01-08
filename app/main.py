@@ -120,3 +120,9 @@ def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
             detail=f"A user with email '{user.email}' already exists.",
         )
     return crud.create_user(db=db, user=user)
+
+
+@app.get("/users/me", response_model=schemas.User)
+def read_users_me(db: Session = Depends(get_db), token: str = Depends(oauth2_scheme)):
+    current_user = auth.get_current_active_user(db, token)
+    return current_user
