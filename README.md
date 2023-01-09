@@ -14,6 +14,8 @@ Muziek is een deel van mijn dagelijks leven, ik zou niet weten wat ik zonder moe
 - /albums: returned lijst met alle albums
 - /genres: returned lijst met alle genres
 
+(endpoint om de huidige user op te halen, voor OAuth)
+
 ### PUT
 
 - /albums/{album_id}: update een album (volledige resource)
